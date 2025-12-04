@@ -1,0 +1,20 @@
+TestCase ID,Title,Module,Pre-conditions,Test Steps,Test Data,Expected Result,Priority,Type,Automation Status,Estimated Time (min),Author,Date
+TC_UI_001,Login with valid credentials,Authentication,User account exists (standard_user). Browser opened and navigated to https://www.saucedemo.com/,"1. Enter username 'standard_user'
+2. Enter password 'secret_sauce'
+3. Click 'Login' button","username: standard_user
+password: secret_sauce",User is successfully logged in and lands on the Products page (URL contains /inventory.html). Product list is visible.,High,Functional / Smoke,Ready to Automate,5,QA Automation Team,2025-11-21
+TC_UI_002,Login with invalid credentials shows error,Authentication,Browser opened and navigated to https://www.saucedemo.com/,"1. Enter username 'locked_out_user'
+2. Enter password 'wrong_password'
+3. Click 'Login' button","username: locked_out_user
+password: wrong_password",Login fails. Error message displayed: 'Epic sadface: Username and password do not match any user in this service' (or site-specific message). User remains on login page.,High,Negative / Functional,Ready to Automate,5,QA Automation Team,2025-11-21
+TC_UI_003,Add product to cart and complete checkout (happy path),Shopping Cart / Checkout,User logged in as 'standard_user' and on Products page.,"1. Click 'Add to cart' on first product
+2. Click on cart icon
+3. Verify product is listed in cart
+4. Click 'Checkout'
+5. Enter First Name 'Test', Last Name 'User', Postal Code '12345'
+6. Click 'Continue'
+7. Click 'Finish'","username: standard_user
+password: secret_sauce
+FirstName: Test
+LastName: User
+PostalCode: 12345","Product appears in cart, Checkout Overview shows correct product and price, After 'Finish' user sees 'THANK YOU FOR YOUR ORDER' or completion confirmation and is taken to the order completion page.",Medium,Functional / End-to-End,Ready to Automate,8,QA Automation Team,2025-11-21
