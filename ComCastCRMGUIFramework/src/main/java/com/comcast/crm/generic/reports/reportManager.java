@@ -49,12 +49,12 @@ public class reportManager implements ITestListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		   test.fail("Test Failed").addScreenCaptureFromPath(destfile.getAbsolutePath());
+		   test.log(Status.FAIL,testname+"Test Failed").addScreenCaptureFromPath(destfile.getAbsolutePath());
 
 		  }
 	 
 	 public void onStart(ITestContext context) {
-		    spark=new ExtentSparkReporter("./report/reports.html");
+		    spark=new ExtentSparkReporter("./report/reports2.html");
 		    spark.config().setDocumentTitle("Testing");
 		    spark.config().setReportName("Automation");
 		    spark.config().setTheme(Theme.DARK);

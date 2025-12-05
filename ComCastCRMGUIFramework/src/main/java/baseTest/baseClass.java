@@ -21,33 +21,32 @@ public class baseClass {
 	
 	public WebDriver driver;
 	public loginpage lp;
-	public FileUtility file;
 	public homePage hp;
 	public static WebDriver edriver;
 	@BeforeClass
 	public void launchingBrowser() throws IOException {
-		file=new FileUtility();
-	String browser = file.getData("browser");
+	String browser = System.getProperty("browser");
 	 if(browser.equals("chrome"))
 		 driver=new ChromeDriver();
 	 else if(browser.equals("edge"))
 		 driver=new EdgeDriver();
-	 else 
+	 else { 
 		 driver=new ChromeDriver();
+	 }
 	 
 	 edriver=driver;
-	  String url=file.getData("baseUrl");
+	  String url=System.getProperty("baseUrl");
 	  driver.get(url);
 	  driver.manage().window().maximize();
-	  String timeOut=file.getData("timeOuts");
+	  String timeOut=System.getProperty("timeOuts");
 	 int timeOuts= Integer.parseInt(timeOut);
 	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(timeOuts));
 	}
 	
 	@BeforeMethod
 	public void login() throws IOException {
-		String username=file.getData("username");
-		String password=file.getData("password");
+		String username=System.getProperty("username");
+		String password=System.getProperty("password");
 		lp=new loginpage(driver);
 		lp.user().sendKeys(username);
 		lp.pass_word().sendKeys(password);
